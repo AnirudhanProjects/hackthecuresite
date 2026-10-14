@@ -1,0 +1,14 @@
+{
+  "name": "Hack The Cure",
+  "short_name": "Hack The Cure",
+  "description": "A one-week virtual global health hackathon for students aged 13 to 18.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F1ECE2",
+  "theme_color": "#F1ECE2",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
