@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hack The Cure">
+  <title>Hack The Cure</title>
+  <defs>
+    <linearGradient id="htc" x1="32" y1="6" x2="32" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC3B2"/>
+      <stop offset="1" stop-color="#FF5C59"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#FFF8F4"/>
+  <g fill="none" stroke="url(#htc)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 5v4.5M20.4 9.6l2.6 3.7M43.6 9.6l-2.6 3.7"/>
+    <path d="M26.2 43.6C19 39.2 13.6 33.1 13.6 26.6a9.7 9.7 0 0 1 9.7-9.7c3.6 0 6.8 1.9 8.7 4.7 1.9-2.8 5.1-4.7 8.7-4.7a9.7 9.7 0 0 1 9.7 9.7c0 6.5-5.4 12.6-12.6 17"/>
+    <path d="M16.6 29.6h7.2l3.2-6 4.9 14.4 3.3-8.4h11.6"/>
+    <path d="M25.6 46.4h12.8M27.2 51h9.6M29.4 55.4h5.2"/>
+  </g>
+</svg>
