@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentor registration | Hack The Cure</title>
+<meta name="description" content="Register to mentor a track at Hack The Cure, a free online global health hackathon for students aged 13 to 18.">
+<meta name="theme-color" content="#F1ECE2">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Besley:ital,wght@0,500;0,700;0,800;1,700;1,800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main class="mentor-page" id="main">
+  <div class="wrap">
+    <a class="legal__logo" href="index.html" aria-label="Hack The Cure, home">
+      <img src="assets/hackthecure-logo.png" alt="Hack The Cure" width="1000" height="628">
+    </a>
+
+    <div class="mentor-page__intro">
+      <h1>Mentor registration.</h1>
+      <p class="lede">
+        Each track has two mentors who hold office hours in its Discord room during the
+        week, <span data-event-date>December 27, 2026 &ndash; January 3, 2027</span>.
+        Tell us who you are, which tracks suit you and when you are free.
+      </p>
+    </div>
+
+    <form class="form sheet mentor-form" id="mentor-form" novalidate>
+
+      <fieldset class="mentor-form__part">
+        <legend>About you</legend>
+        <div class="form__row">
+          <div class="field">
+            <label for="m-name">Full name</label>
+            <input type="text" id="m-name" name="name" autocomplete="name" required aria-describedby="m-error-name">
+            <p class="error" id="m-error-name" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="m-email">Email</label>
+            <input type="email" id="m-email" name="email" autocomplete="email" required aria-describedby="m-error-email">
+            <p class="error" id="m-error-email" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="m-org">University or workplace</label>
+          <input type="text" id="m-org" name="organisation" autocomplete="organization" required aria-describedby="m-error-organisation">
+          <p class="error" id="m-error-organisation" role="alert"></p>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="m-linkedin">LinkedIn profile <span class="field__optional">(optional)</span></label>
+            <input type="url" id="m-linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/..." aria-describedby="m-error-linkedin">
+            <p class="error" id="m-error-linkedin" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="m-photo">Photo of yourself <span class="field__optional">(optional)</span></label>
+            <div class="photo-pick">
+              <span class="photo-pick__preview" id="m-photo-preview" aria-hidden="true"></span>
+              <input type="file" id="m-photo" name="photo" accept="image/*" aria-describedby="m-error-photo">
+            </div>
+            <p class="error" id="m-error-photo" role="alert"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mentor-form__part">
+        <legend>Tracks</legend>
+        <div class="form__row">
+          <div class="field">
+            <label for="m-first">First choice</label>
+            <select id="m-first" name="firstChoice" required aria-describedby="m-error-firstChoice">
+              <option value="">Choose a track</option>
+            </select>
+            <p class="error" id="m-error-firstChoice" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="m-second">Second choice</label>
+            <select id="m-second" name="secondChoice" required aria-describedby="m-error-secondChoice">
+              <option value="">Choose a track</option>
+            </select>
+            <p class="error" id="m-error-secondChoice" role="alert"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mentor-form__part">
+        <legend>Office hours</legend>
+
+        <div class="field">
+          <label for="m-tz">Your time zone</label>
+          <select id="m-tz" name="timezone"></select>
+        </div>
+
+        <p class="hours__note">
+          We expect <strong>2 to 3 hours a day</strong>. Click or drag across the hours
+          you would like to keep open. Times are in the time zone above.
+        </p>
+
+        <label class="hours__same">
+          <input type="checkbox" id="m-same" name="sameEveryDay" checked>
+          Same hours every day
+        </label>
+
+        <div class="hours" id="m-hours"></div>
+        <p class="error" id="m-error-hours" role="alert"></p>
+      </fieldset>
+
+      <fieldset class="mentor-form__part">
+        <legend>Reaching you</legend>
+        <div class="form__row">
+          <div class="field">
+            <label for="m-method">Best way for our team to reach you while we organise</label>
+            <select id="m-method" name="contactMethod">
+              <option value="Email (same as above)">Email (same as above)</option>
+              <option value="A different email">A different email</option>
+              <option value="Discord">Discord</option>
+              <option value="Phone or text">Phone or text</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="LinkedIn">LinkedIn</option>
+            </select>
+          </div>
+          <div class="field" id="m-contact-field" hidden>
+            <label for="m-contact" id="m-contact-label">Where to reach you</label>
+            <input type="text" id="m-contact" name="contact" aria-describedby="m-error-contact">
+            <p class="error" id="m-error-contact" role="alert"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <button class="btn btn--primary btn--lg btn--block" type="submit" id="m-submit">
+        <span class="btn__label">Register as a mentor</span>
+      </button>
+
+      <p class="form__fineprint">
+        We use these details only to organise Hack The Cure. Your photo and LinkedIn
+        are only shown on the site if you agree to it later.
+      </p>
+
+      <noscript>
+        <p class="form__fineprint">This form needs JavaScript. With it switched off, email hackthecureoutreach@gmail.com instead.</p>
+      </noscript>
+
+      <div class="form__status" id="m-status" role="status" tabindex="-1" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6.5 9.4 17 4 11.7"/>
+        </svg>
+        <span class="form__status-text"></span>
+      </div>
+    </form>
+
+    <p class="legal__back"><a class="text-link" href="index.html">Back to Hack The Cure</a></p>
+  </div>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/mentor.js"></script>
+</body>
+</html>
