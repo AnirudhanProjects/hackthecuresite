@@ -259,8 +259,20 @@ function saveMentorPhoto(base64, label) {
   } catch (err) {
     // The registration itself still saves without the photo.
     console.error('mentor photo failed: ' + err);
-    return 'Photo upload failed';
+    return 'Photo upload failed: ' + String(err).slice(0, 200);
   }
+}
+
+/**
+ * Run this once from the Apps Script editor (choose it in the function menu
+ * next to the Run button, then click Run). It asks Google for Drive access and
+ * creates the photo folder. Then redeploy: Deploy -> Manage deployments ->
+ * pencil -> Version: New version -> Deploy.
+ */
+function setUpMentorPhotos() {
+  var folders = DriveApp.getFoldersByName(MENTOR_PHOTO_FOLDER);
+  var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(MENTOR_PHOTO_FOLDER);
+  console.log('Mentor photos will be saved to: ' + folder.getUrl());
 }
 
 function notifyMentor(data, name, email, photoUrl, total) {

@@ -19,6 +19,11 @@
     'Nutrition & Food Security',
     'Environmental Development'
   ];
+  /* Tracks that already have both mentors. They still show, greyed out. */
+  var FULL_TRACKS = [
+    'Health Education & Misinformation',
+    'Healthcare Access & Equity'
+  ];
 
   function $(sel, scope) { return (scope || document).querySelector(sel); }
   function $$(sel, scope) { return Array.prototype.slice.call((scope || document).querySelectorAll(sel)); }
@@ -49,6 +54,10 @@
       var option = document.createElement('option');
       option.value = name;
       option.textContent = name;
+      if (FULL_TRACKS.indexOf(name) !== -1) {
+        option.disabled = true;
+        option.textContent = name + ' (full)';
+      }
       select.appendChild(option);
     });
   });
