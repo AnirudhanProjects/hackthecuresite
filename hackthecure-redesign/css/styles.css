@@ -889,22 +889,31 @@ body.is-locked { overflow: hidden; }
 .partner:hover .partner__go, .partner:focus-visible .partner__go { text-decoration-color: var(--coral); }
 @media (max-width: 880px) { .partner { grid-template-columns: 72px minmax(0, 1fr); } .partner__logo { width: 72px; height: 72px; grid-row: span 2; } .partner__about, .partner__go { grid-column: 2; } }
 
-/* Team: five people in a row on wide screens, photo above name and role. */
+/* Team: portrait photos, each on a sheet in one of the track colours, with
+   every other one dropped a little so the row reads like a pinned-up set. */
 .team__list {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 36px clamp(20px, 3vw, 40px);
+  gap: 40px clamp(20px, 3vw, 40px);
   margin-top: clamp(28px, 4vw, 48px);
+  padding-bottom: 48px;
 }
-.member { display: grid; justify-items: center; align-content: start; text-align: center; gap: 4px; }
+.member { display: grid; align-content: start; gap: 4px; }
+.member:nth-child(even) { transform: translateY(48px); }
+.member:nth-child(1) { --sheet: var(--s1); }
+.member:nth-child(2) { --sheet: var(--s2); }
+.member:nth-child(3) { --sheet: var(--s3); }
+.member:nth-child(4) { --sheet: var(--s4); }
+.member:nth-child(5) { --sheet: var(--s5); }
 .member__photo {
-  width: min(100%, 160px);
-  aspect-ratio: 1;
+  width: calc(100% - 10px);
+  aspect-ratio: 4 / 5;
   height: auto;
-  margin-bottom: 14px;
-  border-radius: 50%;
+  margin-bottom: 22px;
   object-fit: cover;
-  box-shadow: 0 0 0 5px var(--paper), 0 0 0 6.5px var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 10px 10px 0 -1.5px var(--sheet, var(--coral)), 10px 10px 0 0 var(--ink);
 }
 .member__name {
   font-family: var(--font-display);
@@ -922,8 +931,16 @@ body.is-locked { overflow: hidden; }
   color: var(--red);
   max-width: 22ch;
 }
-@media (max-width: 1080px) { .team__list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .team__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1080px) {
+  .team__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .member:nth-child(even) { transform: none; }
+  .member:nth-child(3n + 2) { transform: translateY(40px); }
+}
+@media (max-width: 560px) {
+  .team__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .member:nth-child(3n + 2) { transform: none; }
+  .member:nth-child(even) { transform: translateY(32px); }
+}
 
 /* ----------------------------------------------------------- 12. Involved */
 /* Students first: one large block, the other two ruled beside it. */
